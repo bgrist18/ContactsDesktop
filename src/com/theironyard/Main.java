@@ -12,13 +12,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jodd.json.JsonParser;
+import jodd.json.JsonSerializer;
 import sample.Contact;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+import java.sql.Wrapper;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Main extends Application {
@@ -66,26 +66,24 @@ public class Main extends Application {
         }
 
         @Override
-        public void initialize(URL location, ResourceBundle resources) {
+        public void initialize(URL location, ResourceBundle resources)
 
-        }
     }
-}
 
 
 
 
-    public class readwritejson {
-        static com.theironyard.Controller  load(String fileName) throws IOException {
-            File f = new File(fileName);
-            try {
-                FileReader fr = new FileReader(f);
-                int fileSize = (int) f.length();     //cast to int
-                char[] contents = new char[fileSize];
-                fr.read(contents, 0, fileSize);
-                JsonParser parser = new JsonParser();
-                return parser.parse(contents, com.theironyard.Controller.class);
-            }
-        }
+
+    public void saveContacts() throws IOException {
+        File contactsJson = new File("Contacts");
+        JsonSerializer serializer;
+        serializer = new JsonSerializer();
+        ArrayList<Contact> contactArrayList = new ArrayList<>();
+        contactArrayList.addAll("Contacts");
+        ContactWrapper = new ContactWrapper(contactArrayList);
+        String json = serializer.deep(true).serialize(ContactWrapper);
+        FileWriter writeJson = new FileWriter(contactsJson);
+        writeJson.write(json);
+        writeJson.close();
     }
 }
