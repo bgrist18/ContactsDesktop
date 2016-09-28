@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebView;
+import sample.Contact;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,6 +39,7 @@ public class Controller implements Initializable {
         String p = phoneField.getText();
         String e = emailField.getText();
         Contact contact = new Contact(n, p, e);
+
     }
 
     public void removeContact(){
