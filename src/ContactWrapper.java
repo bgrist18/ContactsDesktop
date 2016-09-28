@@ -1,3 +1,4 @@
+import kotlin.reflect.jvm.internal.impl.descriptors.EffectiveVisibility;
 import sample.Contact;
 
 import java.util.ArrayList;
@@ -6,6 +7,7 @@ import java.util.ArrayList;
  * Created by brettgrist on 9/27/16.
  */
 public class ContactWrapper {
+
         ArrayList<Contact> contacts;
 
         public ContactWrapper(ArrayList<Contact> country) {

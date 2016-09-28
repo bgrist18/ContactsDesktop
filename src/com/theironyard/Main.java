@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 import jodd.json.JsonParser;
 import jodd.json.JsonSerializer;
 import sample.Contact;
-
 import java.io.*;
 import java.net.URL;
 import java.sql.Wrapper;
